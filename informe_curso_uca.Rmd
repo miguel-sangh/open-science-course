@@ -1,7 +1,8 @@
 ---
 title: "Ejercicio práctico Rmarkdown"
 author:
-    - names: "María Hurtado de Mendoza"
+    - name: "María Hurtado de Mendoza"
+    - name: "Ejercicio realizado por Miguel J. Sánchez-Guerrero Hernández"
 
 date: "`r Sys.Date()`" 
 output: 
@@ -18,7 +19,6 @@ editor_options:
 ```{r setup, include = FALSE}
 
 knitr::opts_chunk$set(echo = FALSE)
-
 # Cargar los paquetes necesarios
 library(tidyr)
 library(dplyr)
@@ -56,7 +56,22 @@ data %>% dplyr::count(top.genre) %>% arrange(desc(n)) %>% head()
 
 ```{r duration_trend, fig.width=8, fig.height=6}
 
-plot(dur ~ year, data = data)
-abline(lm(dur ~ year, data = data))
+plot(dur ~ year, data = data, xlab = "Año", ylab = "Duración (segundos)", main = "Tendencia de la duración de los hits")
+abline(lm(dur ~ year, data = data), col = "red", lwd = 2)
 
 ```
+
+## Comentario del gráfico ###
+
+En la figura generada por el código se puede ver una ligera tendencia negativa. 
+ Se observa como la duración de los hits son menores en la actualidad respecto al 2010
+ Sin embargo, se debería hacer análisis estadistico para saber si es significativo.
+ 
+ 
+ 
+## DOI ZENODO
+
+https://doi.org/10.5281/zenodo.15849013
+
+
+
